@@ -25,7 +25,7 @@ public class NetPromoterScore {
         List<PersonVote> passives = new ArrayList<>();
         List<PersonVote> detractors = new ArrayList<>();
 
-        final int TOTAL_PERSON_VOTES = 2;
+        final int TOTAL_PERSON_VOTES = 3;
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -39,15 +39,15 @@ public class NetPromoterScore {
             int score = Integer.parseInt(bufferedReader.readLine().trim());
             validate(score < 0 || score > 10, "Please enter a valid score!");
 
-            if (score < 7) {
+            if (score >= 9) {
                 var personVote = buildPersonVote(score, age);
-                detractors.add(personVote);
-            } else if (score < 9) {
+                promoters.add(personVote);
+            } else if  (score >= 7) {
                 var personVote = buildPersonVote(score, age);
                 passives.add(personVote);
             } else {
                 var personVote = buildPersonVote(score, age);
-                promoters.add(personVote);
+                detractors.add(personVote);
             }
         }
 
@@ -60,7 +60,7 @@ public class NetPromoterScore {
         System.out.println("Percentual de Promotores "
                 .concat(calculatePercentage(promoters, TOTAL_PERSON_VOTES)));
 
-        calculateAgePromoters(promoters);
+        calculatePromotersAgeAverage(promoters);
     }
 
     private static PersonVote buildPersonVote(int score, int age) {
@@ -78,16 +78,16 @@ public class NetPromoterScore {
         return String.valueOf(votesPercent).concat(" %");
     }
 
-    private static void calculateAgePromoters(List<PersonVote> personVotes) {
+    private static void calculatePromotersAgeAverage(List<PersonVote> personVotes) {
         validate(personVotes.isEmpty(), "There were no promoters!");
 
-        var sumAges = personVotes
+        var average = personVotes
                 .stream()
                 .map(PersonVote::getAge)
-                .reduce(0, Integer::sum);
+                .reduce(0, Integer::sum) / personVotes.size();
 
-        System.out.println("Percentual de Promotores "
-                .concat(String.valueOf(sumAges / personVotes.size())));
+        System.out.println("Media de idade dos Promotores "
+                .concat(String.valueOf(average)));
     }
 
     private static void validate(boolean invalidExpression, String message) {
