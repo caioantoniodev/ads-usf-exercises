@@ -86,7 +86,7 @@ public class NetPromoterScore {
                 .map(PersonVote::getAge)
                 .reduce(0, Integer::sum) / personVotes.size();
 
-        System.out.println("Media de idade dos Promotores "
+        System.out.println("Média da idade dos Promotores "
                 .concat(String.valueOf(average)));
     }
 
