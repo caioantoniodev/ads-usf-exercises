@@ -3,9 +3,7 @@ package main;
 import main.entity.PersonVote;
 import main.exception.BusinnesException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -68,8 +66,6 @@ public class NetPromoterScore {
     }
 
     private static String buildPercentage(List<PersonVote> personVotes) {
-        validate(personVotes.isEmpty(), "No one went to the movies!");
-
         return String.valueOf(personVotes.size()).concat("%");
     }
 
