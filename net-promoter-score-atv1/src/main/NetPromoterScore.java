@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.Boolean.TRUE;
 
@@ -25,24 +26,29 @@ public class NetPromoterScore {
         List<PersonVote> passives = new ArrayList<>();
         List<PersonVote> detractors = new ArrayList<>();
 
-        final int TOTAL_PERSON_VOTES = 3;
+        final int TOTAL_PERSON_VOTES = 100;
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
+        Random random = new Random();
         for (int i = 0; i < TOTAL_PERSON_VOTES; i++) {
 
-            System.out.print("Entre com a idade: ");
-            int age = Integer.parseInt(bufferedReader.readLine().trim());
-            validate(age <= 0, "Please enter a valid age!");
+//            System.out.print("Entre com a idade: ");
+//            int age = Integer.parseInt(bufferedReader.readLine().trim());
+//            validate(age <= 0, "Please enter a valid age!");
 
-            System.out.print("Entre com sua nota: ");
-            int score = Integer.parseInt(bufferedReader.readLine().trim());
-            validate(score < 0 || score > 10, "Please enter a valid score!");
+
+            int age = random.nextInt(100);
+
+//            System.out.print("Entre com sua nota: ");
+//            int score = Integer.parseInt(bufferedReader.readLine().trim());
+//            validate(score < 0 || score > 10, "Please enter a valid score!");
+
+            int score = random.nextInt(10);
 
             if (score >= 9) {
                 var personVote = buildPersonVote(score, age);
                 promoters.add(personVote);
-            } else if  (score >= 7) {
+            } else if (score >= 7) {
                 var personVote = buildPersonVote(score, age);
                 passives.add(personVote);
             } else {
@@ -52,13 +58,13 @@ public class NetPromoterScore {
         }
 
         System.out.println("Percentual de Detratores "
-                .concat(calculatePercentage(detractors, TOTAL_PERSON_VOTES)));
+                .concat(buildPercentage(detractors)));
 
         System.out.println("Percentual de Passivos ou Neutros "
-                .concat(calculatePercentage(passives, TOTAL_PERSON_VOTES)));
+                .concat(buildPercentage(passives)));
 
         System.out.println("Percentual de Promotores "
-                .concat(calculatePercentage(promoters, TOTAL_PERSON_VOTES)));
+                .concat(buildPercentage(promoters)));
 
         calculatePromotersAgeAverage(promoters);
     }
@@ -70,12 +76,10 @@ public class NetPromoterScore {
                 .build();
     }
 
-    private static String calculatePercentage(List<PersonVote> personVotes, int totalPerson) {
-        validate(totalPerson <= 0, "No one went to the movies!");
+    private static String buildPercentage(List<PersonVote> personVotes) {
+        validate(personVotes.isEmpty(), "No one went to the movies!");
 
-        double votesPercent = ((double) personVotes.size() / totalPerson) * 100.0;
-
-        return String.valueOf(votesPercent).concat(" %");
+        return String.valueOf(personVotes.size()).concat("%");
     }
 
     private static void calculatePromotersAgeAverage(List<PersonVote> personVotes) {
