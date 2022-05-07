@@ -28,20 +28,11 @@ public class NetPromoterScore {
 
         final int TOTAL_PERSON_VOTES = 100;
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Random random = new Random();
+
         for (int i = 0; i < TOTAL_PERSON_VOTES; i++) {
 
-//            System.out.print("Entre com a idade: ");
-//            int age = Integer.parseInt(bufferedReader.readLine().trim());
-//            validate(age <= 0, "Please enter a valid age!");
-
-
             int age = random.nextInt(100);
-
-//            System.out.print("Entre com sua nota: ");
-//            int score = Integer.parseInt(bufferedReader.readLine().trim());
-//            validate(score < 0 || score > 10, "Please enter a valid score!");
 
             int score = random.nextInt(10);
 
