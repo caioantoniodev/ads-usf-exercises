@@ -1,0 +1,3 @@
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/battery_autonomy/cmake-build-debug/CMakeFiles/battery_autonomy.dir
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/battery_autonomy/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/battery_autonomy/cmake-build-debug/CMakeFiles/rebuild_cache.dir
