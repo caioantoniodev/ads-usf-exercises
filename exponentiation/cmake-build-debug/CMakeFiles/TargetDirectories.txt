@@ -1,0 +1,3 @@
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/exponentiation/cmake-build-debug/CMakeFiles/exponentiation.dir
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/exponentiation/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/caioaroberto/Documentos/pdi/ads-usf-exercises/exponentiation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
