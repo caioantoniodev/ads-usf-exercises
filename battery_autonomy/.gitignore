@@ -79,6 +79,8 @@ dkms.conf
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 
+/cmake-build-debug/
+
 # IntelliJ
 /out/
 
