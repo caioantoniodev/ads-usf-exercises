@@ -1,1 +1,1 @@
-# ads-usf-exercises
+# University Exercises
