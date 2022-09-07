@@ -1,21 +1,27 @@
 #include <stdio.h>
 
-void calcCylinder(int h, int r, float *v, float *a);
+void cylinderOperation(int height, int radius, float *bulk, float *area);
 
 int main() {
 
-    float v;
-    float a;
+    float bulk, area;
+    int height, radius;
 
-    calcCylinder(2, 2, &v, &a);
+    printf("Insert height: ");
+    scanf("%d", &height);
 
-    printf("%f\n", a);
-    printf("%f", v);
+    printf("Insert radius: ");
+    scanf("%d", &radius);
+
+    cylinderOperation(height, radius, &bulk, &area);
+
+    printf("Area: %.2f\n", area);
+    printf("Bulk: %.2f", bulk);
 
     return 0;
 }
 
-void calcCylinder(int h, int r, float *v, float *a) {
-    *a = 2 * (3.14 * (r * r)) + 2 * (3.14 * r * h);
-    *v = 3.14 * (r * r) * h;
+void cylinderOperation(int height, int radius, float *bulk, float *area) {
+    *area = 2 * (3.14 * (radius * radius)) + 2 * (3.14 * radius * height);
+    *bulk = 3.14 * (radius * radius) * height;
 }
