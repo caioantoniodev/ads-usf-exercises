@@ -2,7 +2,7 @@
 
 int main() {
 
-    int ages[2], old = 0;
+    int ages[15], old = 0;
 
     for (int i = 0; i < sizeof(ages) / sizeof(int); i++) {
         printf("Insert age %d: ", i);
